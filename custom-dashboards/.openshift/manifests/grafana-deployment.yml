@@ -88,8 +88,8 @@ spec:
       dnsPolicy: ClusterFirst
       nodeSelector:
         #Temporarily put this in compute to play with namespaces
-        #node-role.kubernetes.io/infra: "true"
-        node-role.kubernetes.io/compute: "true"
+        node-role.kubernetes.io/infra: "true"
+        #node-role.kubernetes.io/compute: "true"
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
