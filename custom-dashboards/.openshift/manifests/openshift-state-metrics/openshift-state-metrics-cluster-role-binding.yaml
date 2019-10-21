@@ -9,4 +9,4 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: openshift-state-metrics
-  namespace: tph-monitoring
+  namespace: {{ dashboard_namespace }}

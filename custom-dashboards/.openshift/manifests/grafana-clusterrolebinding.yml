@@ -8,6 +8,6 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: grafana-custom
-  namespace: tph-monitoring
+  namespace: {{ dashboard_namespace }}
 userNames:
-- system:serviceaccount:tph-monitoring:grafana-custom
+- system:serviceaccount:{{ dashboard_namespace }}:grafana-custom
