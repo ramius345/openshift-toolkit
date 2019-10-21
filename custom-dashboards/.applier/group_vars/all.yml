@@ -4,6 +4,8 @@ openshift_cluster_content:
     content:
       - name: Namespace
         file: "{{ inventory_dir }}/../.openshift/namespace/"
+        tags:
+          - infrastructure
       - name: Grafana
         file: "{{ inventory_dir }}/../.openshift/manifests/"
         namespace: "{{ dashboard_namespace }}"
