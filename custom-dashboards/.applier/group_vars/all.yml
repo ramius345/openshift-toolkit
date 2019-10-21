@@ -7,10 +7,17 @@ openshift_cluster_content:
         file: "{{ inventory_dir }}/../.openshift/namespace/namespace.yml.j2"
         tags:
           - infrastructure
-      - name: Grafana config secret
+      - name: Grafana - config secret
         pre_steps:
           - role: mdt-secret-discovery
         file: "{{ inventory_dir }}/../.openshift/secrets/grafana_config.yml.j2"
+        namespace: "{{ dashboard_namespace }}"
+        tags:
+          - infrastructure
+      - name: Grafana - datasources secret
+        pre_steps:
+          - role: mdt-secret-discovery
+        file: "{{ inventory_dir }}/../.openshift/secrets/grafana_datasources.yml.j2"
         namespace: "{{ dashboard_namespace }}"
         tags:
           - infrastructure
