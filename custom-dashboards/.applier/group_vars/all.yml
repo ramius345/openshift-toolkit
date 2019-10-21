@@ -21,6 +21,13 @@ openshift_cluster_content:
         namespace: "{{ dashboard_namespace }}"
         tags:
           - infrastructure
+      - name: Grafana - dashboards configmap
+        pre_steps:
+          - role: mdt-secret-discovery
+        file: "{{ inventory_dir }}/../.openshift/secrets/grafana_dashboards.yml.j2"
+        namespace: "{{ dashboard_namespace }}"
+        tags:
+          - infrastructure
       - name: Grafana - grafana-clusterrolebinding
         file: "{{ inventory_dir }}/../.openshift/manifest_templates/grafana-clusterrolebinding.yml.j2"
         namespace: "{{ dashboard_namespace }}"
