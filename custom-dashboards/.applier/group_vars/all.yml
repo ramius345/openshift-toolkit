@@ -11,61 +11,61 @@ openshift_cluster_content:
           - infrastructure
       - name: OpenShift State Metrics
         file: "{{ inventory_dir }}/../.openshift/manifests/openshift-state-metrics"
-        namespace: {{ dashboard_namespace }}
+        namespace: "{{ dashboard_namespace }}"
         tags:
           - infrastructure
   - object: Dashboards - Cluster Status
     content:
       - name: Cluster Status Dashboards
         file: "{{ inventory_dir }}/../.openshift/dashboards/cluster-status/manifests"
-        namespace: {{ dashboard_namespace }}
+        namespace: "{{ dashboard_namespace }}"
         tags:
           - dashboard-cluster-status
       - name: Mount Pods Dashboard to Grafana
         action: patch
         file: "{{ inventory_dir }}/../.openshift/manifests/grafana-deployment.yml"
         params: "{{ inventory_dir }}/../.openshift/dashboards/cluster-status/pods-volume-patch.yml"
-        namespace: {{ dashboard_namespace }}
+        namespace: "{{ dashboard_namespace }}"
         tags:
           - dashboard-cluster-status
       - name: Mount Router Dashboard to Grafana
         action: patch
         file: "{{ inventory_dir }}/../.openshift/manifests/grafana-deployment.yml"
         params: "{{ inventory_dir }}/../.openshift/dashboards/cluster-status/router-volume-patch.yml"
-        namespace: {{ dashboard_namespace }}
+        namespace: "{{ dashboard_namespace }}"
         tags:
           - dashboard-cluster-status
       - name: Mount Traffic Dashboard to Grafana
         action: patch
         file: "{{ inventory_dir }}/../.openshift/manifests/grafana-deployment.yml"
         params: "{{ inventory_dir }}/../.openshift/dashboards/cluster-status/traffic-volume-patch.yml"
-        namespace: {{ dashboard_namespace }}
+        namespace: "{{ dashboard_namespace }}"
         tags:
           - dashboard-cluster-status
       - name: Mount Master API Dashboard to Grafana
         action: patch
         file: "{{ inventory_dir }}/../.openshift/manifests/grafana-deployment.yml"
         params: "{{ inventory_dir }}/../.openshift/dashboards/cluster-status/master-api-volume-patch.yml"
-        namespace: {{ dashboard_namespace }}
+        namespace: "{{ dashboard_namespace }}"
         tags:
           - dashboard-cluster-status
   - object: Dashboards - Capacity Management
     content:
       - name: Capacity Management Dashboards
         file: "{{ inventory_dir }}/../.openshift/dashboards/capacity/dashboard-capacity.yml"
-        namespace: {{ dashboard_namespace }}
+        namespace: "{{ dashboard_namespace }}"
         tags:
           - dashboard-capacity
       - name: Capacity Management Rules
         file: "{{ inventory_dir }}/../../capacity-dashboard/capacity_management_rules.yaml"
-        namespace: {{ dashboard_namespace }}
+        namespace: "{{ dashboard_namespace }}"
         tags:
           - dashboard-capacity
       - name: Mount Capacity Dashboard to Grafana
         action: patch
         file: "{{ inventory_dir }}/../.openshift/manifests/grafana-deployment.yml"
         params: "{{ inventory_dir }}/../.openshift/dashboards/capacity/capacity-volume-patch.yml"
-        namespace: {{ dashboard_namespace }}
+        namespace: "{{ dashboard_namespace }}"
         tags:
           - dashboard-capacity
           - openshift-4
@@ -73,14 +73,14 @@ openshift_cluster_content:
     content:
       - name: Capacity Management Dashboards
         file: "{{ inventory_dir }}/../.openshift/dashboards/capacity/dashboard-capacity-3.11.yml"
-        namespace: {{ dashboard_namespace }}
+        namespace: "{{ dashboard_namespace }}"
         tags:
           - dashboard-capacity
       - name: Mount Capacity Dashboard to Grafana
         action: patch
         file: "{{ inventory_dir }}/../.openshift/manifests/grafana-deployment.yml"
         params: "{{ inventory_dir }}/../.openshift/dashboards/capacity/capacity-volume-patch.yml"
-        namespace: {{ dashboard_namespace }}
+        namespace: "{{ dashboard_namespace }}"
         tags:
           - dashboard-capacity
           - openshift-3
