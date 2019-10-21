@@ -14,13 +14,13 @@ openshift_cluster_content:
         namespace: "{{ dashboard_namespace }}"
         tags:
           - infrastructure
-      - name: Grafana - datasources secret
-        pre_steps:
-          - role: mdt-secret-discovery
-        file: "{{ inventory_dir }}/../.openshift/secrets/grafana_datasources.yml.j2"
-        namespace: "{{ dashboard_namespace }}"
-        tags:
-          - infrastructure
+      # - name: Grafana - datasources secret
+      #   pre_steps:
+      #     - role: mdt-secret-discovery
+      #   file: "{{ inventory_dir }}/../.openshift/secrets/grafana_datasources.yml.j2"
+      #   namespace: "{{ dashboard_namespace }}"
+      #   tags:
+      #     - infrastructure
       - name: Grafana - grafana-clusterrolebinding
         file: "{{ inventory_dir }}/../.openshift/manifest_templates/grafana-clusterrolebinding.yml.j2"
         namespace: "{{ dashboard_namespace }}"
