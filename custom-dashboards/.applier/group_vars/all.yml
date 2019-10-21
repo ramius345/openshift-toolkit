@@ -6,6 +6,16 @@ openshift_cluster_content:
         file: "{{ inventory_dir }}/../.openshift/namespace/namespace.yml.j2"
         tags:
           - infrastructure
+      - name: Grafana - grafana-clusterrolebinding
+        file: "{{ inventory_dir }}/../.openshift/manifest_templates/grafana-clusterrolebinding.yml.j2"
+        namespace: "{{ dashboard_namespace }}"
+        tags:
+          - infrastructure
+      - name: Grafana
+        file: "{{ inventory_dir }}/../.openshift/manifests/"
+        namespace: "{{ dashboard_namespace }}"
+        tags:
+          - infrastructure
       - name: Grafana - openshift-state-metrics-cluster-role-binding
         file: "{{ inventory_dir }}/../.openshift/manifest_templates/openshift-state-metrics/openshift-state-metrics-cluster-role-binding.yaml.j2"
         namespace: "{{ dashboard_namespace }}"
@@ -43,21 +53,6 @@ openshift_cluster_content:
           - infrastructure
       - name: Grafana - openshift-state-metrics-service
         file: "{{ inventory_dir }}/../.openshift/manifest_templates/openshift-state-metrics/openshift-state-metrics-service.yaml.j2"
-        namespace: "{{ dashboard_namespace }}"
-        tags:
-          - infrastructure
-      - name: Grafana - grafana-clusterrolebinding
-        file: "{{ inventory_dir }}/../.openshift/manifest_templates/grafana-clusterrolebinding.yml.j2"
-        namespace: "{{ dashboard_namespace }}"
-        tags:
-          - infrastructure
-      - name: Grafana
-        file: "{{ inventory_dir }}/../.openshift/manifests/"
-        namespace: "{{ dashboard_namespace }}"
-        tags:
-          - infrastructure
-      - name: OpenShift State Metrics
-        file: "{{ inventory_dir }}/../.openshift/manifests/openshift-state-metrics"
         namespace: "{{ dashboard_namespace }}"
         tags:
           - infrastructure
