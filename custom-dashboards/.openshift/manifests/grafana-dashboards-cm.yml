@@ -13,8 +13,7 @@ data:
                 "orgId": 1,
                 "type": "file"
             }
-        ]
-    }
+        ]}
 kind: ConfigMap
 metadata:
   name: grafana-dashboards
