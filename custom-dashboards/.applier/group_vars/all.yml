@@ -3,7 +3,7 @@ openshift_cluster_content:
   - object: Infrastructure
     content:
       - name: Namespace
-        file: "{{ inventory_dir }}/../.openshift/namespace/"
+        file: "{{ inventory_dir }}/../.openshift/namespace/namespace.yml.j2"
         tags:
           - infrastructure
       - name: Grafana
